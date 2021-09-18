@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CustomerDuePaymentController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerPaymentController;
@@ -48,4 +49,9 @@ Route::group(['middleware' => ['auth']], function (){
     Route::post('/customer/payment/store', [CustomerPaymentController::class, 'store']);
     Route::get('/payment/edit/{id}', [CustomerPaymentController::class, 'edit']);
     Route::get('/payment/delete/{id}', [CustomerPaymentController::class, 'destroy']);
+
+    Route::get('/due/payments', [CustomerDuePaymentController::class, 'index']);
+    Route::get('/due/payment/create', [CustomerDuePaymentController::class, 'create']);
+    Route::get('/customer/due', [CustomerDuePaymentController::class, 'customerDue']);
+    Route::post('/customer/due/payment/store', [CustomerDuePaymentController::class, 'store']);
 });

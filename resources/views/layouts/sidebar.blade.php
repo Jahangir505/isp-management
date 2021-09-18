@@ -26,7 +26,7 @@
                 <a class="nav-link" data-toggle="collapse" href="#packages" aria-expanded="false" aria-controls="packages">
                     <span class="menu-title">Packages</span>
                     <i class="menu-arrow"></i>
-                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    <i class="mdi mdi-package-variant"></i>
                 </a>
                 <div class="collapse" id="packages">
                     <ul class="nav flex-column sub-menu">
@@ -40,7 +40,7 @@
                 <a class="nav-link" data-toggle="collapse" href="#customer" aria-expanded="false" aria-controls="customer">
                     <span class="menu-title">Customers</span>
                     <i class="menu-arrow"></i>
-                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    <i class="mdi mdi-account-multiple-plus"></i>
                 </a>
                 <div class="collapse" id="customer">
                     <ul class="nav flex-column sub-menu">
@@ -54,12 +54,27 @@
                 <a class="nav-link" data-toggle="collapse" href="#payments" aria-expanded="false" aria-controls="payments">
                     <span class="menu-title">Payments</span>
                     <i class="menu-arrow"></i>
-                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    <i class="mdi mdi-cash-100"></i>
                 </a>
                 <div class="collapse" id="payments">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{url('/payments')}}">Customer Pay List</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{url('/payment/create')}}">Customer Bill</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('/due/payment/create')}}">Due Payment</a></li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#report" aria-expanded="false" aria-controls="report">
+                    <span class="menu-title">Reports</span>
+                    <i class="menu-arrow"></i>
+                    <i class="mdi mdi-signal"></i>
+                </a>
+                <div class="collapse" id="report">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{url('/customers')}}">Monthly Report</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{url('/customer/create')}}">Yearly Report</a></li>
 
                     </ul>
                 </div>

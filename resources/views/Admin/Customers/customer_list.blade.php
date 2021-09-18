@@ -12,6 +12,7 @@
                 </ol>
             </nav>
         </div>
+
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -30,13 +31,24 @@
                                 <th> Package Name </th>
                                 <th> Package Price </th>
                                 <th> Join Date </th>
+                                <th> Total Due </th>
                                 <th> Status </th>
                                 <th width="90"> Action </th>
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $total_due = 0;
+                                $total_paid = 0;
+                                $due = 0;
+                            @endphp
                             @foreach($customers as $i=>$customer)
                                 <tr>
+                                    @php
+                                        $total_due = DB::table('customer_payments')->where('customer_id', '=',$customer->id )->sum('due_amount');
+                                        $total_paid = DB::table('customer_due_payments')->where('customer_id', '=',$customer->id )->sum('paid_amount');
+                                        $due = (double) $total_due - (double)$total_paid;
+                                    @endphp
                                     <td> {{$i + 1}} </td>
                                     <td> {{$customer->first_name. ' ' . $customer->last_name}}  </td>
                                     <td> {{$customer->phone}} </td>
@@ -46,6 +58,7 @@
                                     <td> {{$customer->package->name}} </td>
                                     <td> {{$customer->package->price}} </td>
                                     <td> {{$customer->join_date}} </td>
+                                    <td> {{$due}} </td>
                                     <td> {{$customer->status}} </td>
                                     <td>
                                         <a href="{{url('/customer/edit/'). '/'. $customer->id}}" class="btn btn-gradient-primary  btn-sm">

@@ -2,6 +2,7 @@
 @section('title', 'Packages List')
 
 @section('content')
+
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title"> Payment List </h3>
@@ -16,7 +17,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered display" id="my_table" width="100%">
                             <thead>
                             <tr>
                                 <th> # </th>
@@ -50,10 +51,12 @@
                                 </tr>
                             @endforeach
                             </tbody>
+                            <tfoot></tfoot>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   
 @endsection
